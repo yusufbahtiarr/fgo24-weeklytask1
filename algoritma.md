@@ -35,7 +35,7 @@
 ## 2. Reverse Words
 
 1. Mulai
-2. Input sebuah kalimat dan simpan sebagai variabel text
+2. Buat Penampung untuk pemisah kata sebagai 'word', pembalikan kata sebagai 'reverse' dan hasilnya ke 'result'
 3. Masukkan kalimat sebagai 'text'
 4. Pisahkan 'text' menjadi daftar kata lalu masukan ke dalam 'word'
 5. balikkan urutan pada 'word', simpan ke 'textReverse'
