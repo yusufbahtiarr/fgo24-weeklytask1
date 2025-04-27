@@ -11,20 +11,22 @@
 
 **Flowchart**
 ```mermaid
-    flowchart LR
+    flowchart TD
     a@{shape: circle, label: "Mulai"}
     b@{shape: rectangle, label: "textPalindrom, textSplit, resultPalindrom"}
     c@{shape: lean-r, label: "textPalindrom"}
-    d@{shape: rect, label: "Ubah textPalindrom ke huruf kecil"}
-    e@{shape: rect, label: "Pisahkan setiap huruf & Balik urutan textPalindrom ke textSplit"}
-    f@{shape: rect, label: "Gabungkan setiap kata di textSplit ke resultPalindrom"}
+    d@{shape: rect, label: "Konversi textPalindrom ke huruf kecil"}
+    f@{shape: rect, label: "resultPalindrom = textSplit + resultPalindrom"}
     g@{shape: diamond, label: "textPalindrom === resultPalindrom"}
-    h@{shape: lean-r, label: Output = "Palindrom"}
-    i@{shape: lean-r, label: Output = "Bukan Palindrom"}
+    h@{shape: lean-r, label: '"Palindrom"'}
+    i@{shape: lean-r, label: '"Bukan Palindrom"'}
     j@{shape: dbl-circ, label: "Selesai"}
+    dx@{shape: diamond, label: " i < textSplit.length"}
+    db@{shape: rect, label: "increment: i++"}
 
-    a-->b-->c-->d
-    d-->e-->f-->g
+    a-->b-->c-->d-->dx
+    dx--Tidak-->g
+    dx--Ya-->f-->db-->dx
     g--Ya-->h-->j
     g--Tidak-->i-->j
 
@@ -33,27 +35,29 @@
 ## 2. Reverse Words
 
 1. Mulai
-2. Buat Penampung untuk pembalikan kata sebagai 'reverse' dan hasilnya ke 'result'
+2. Input sebuah kalimat dan simpan sebagai variabel text
 3. Masukkan kalimat sebagai 'text'
-4. Pisahkan 'text' menjadi daftar kata lalu masukan ke dalam 'reverse'
-5. pada 'reverse' balik urutan katanya
-6. gabungkan kembali kata-kata yang sudah di balik menjadi satu kalimat ke dalam 'result'
+4. Pisahkan 'text' menjadi daftar kata lalu masukan ke dalam 'word'
+5. balikkan urutan pada 'word', simpan ke 'textReverse'
+6. gabungkan kata pada 'textReverse' yang telah di balik menjadi satu kalimat ke dalam 'result'
 7. Tampilkan hasilnya
 8. Selesai
 
 
 
+
+
 **Flowchart**
 ```mermaid
-flowchart LR
+flowchart TD
 
 a@{shape: circle, label: "Mulai"}
-b@{shape: rect, label: "text, reverse, result"}
+b@{shape: rect, label: "text, word, reverse, result"}
 c@{shape: lean-r, label: "text"}
-d@{shape: rect, label: "Pisahkan tiap kata di 'text' ke ' reverse'"}
-e@{shape: rect, label: "Balik urutan kata-katanya"}
-f@{shape: rect, label: "Gabungkan tiap kata di 'reverse' ke 'result'"}
-g@{shape: lean-r, label: '"Result"'}
+d@{shape: rect, label: "word = text.split(' ')"}
+e@{shape: rect, label: "textReverse = word.reverse()"}
+f@{shape: rect, label: "result = reverse.join(' ')"}
+g@{shape: lean-r, label: '"result"'}
 h@{shape: dbl-circ, label: "Selesai"}
 
 a-->b-->c-->d-->e-->f-->g-->h
